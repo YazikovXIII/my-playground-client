@@ -1,7 +1,9 @@
-import { Description } from "../components/Description/Description";
+import { Todo } from "../components/Todos/Todo";
 
 export const Todos = () => {
-  const header = "Todos";
-  const text = "Todos are in progress...Check it later!";
-  return <Description headertext={header} partext={text} />;
+  return (
+    <div style={{ paddingTop: "100px" }}>
+      <Todo />
+    </div>
+  );
 };

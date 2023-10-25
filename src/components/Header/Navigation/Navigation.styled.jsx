@@ -15,8 +15,8 @@ export const NavigationLink = styled(NavLink)`
   color: green;
   font-size: 20px;
   font-weight: 400;
-
-  width: 100px;
+  padding: 0 10px;
+  width: fit-content;
   transition: all 300ms ease-in-out;
   &:hover {
     color: black;
