@@ -1,14 +1,30 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { logIn } from "../redux/user/authOperations";
+import { Loader } from "../components/SharedLayout/Loader";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsloading] = useState(false);
+
+  const dispatch = useDispatch();
 
   function subHandler(e) {
     e.preventDefault();
     console.log(email, password);
+    const values = { email, password };
+    try {
+      setIsloading(true);
+      const response = dispatch(logIn(values));
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
   }
-  return (
+  return isLoading ? (
+    <Loader />
+  ) : (
     <>
       <div style={{ paddingTop: "100px" }}>Login page</div>
       <form>
