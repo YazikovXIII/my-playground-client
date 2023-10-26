@@ -10,9 +10,7 @@ export const Login = () => {
 
   const dispatch = useDispatch();
 
-  function subHandler(e) {
-    e.preventDefault();
-    console.log(email, password);
+  function subHandler() {
     const values = { email, password };
     try {
       setIsloading(true);
