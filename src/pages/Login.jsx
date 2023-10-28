@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logIn } from "../redux/user/authOperations";
 import { Loader } from "../components/SharedLayout/Loader";
+import { getUser } from "../redux/user/authSelectors";
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -9,13 +11,23 @@ export const Login = () => {
   const [isLoading, setIsloading] = useState(false);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const user = useSelector(getUser);
 
-  function subHandler() {
+  async function subHandler(e) {
+    e.preventDefault();
     const values = { email, password };
     try {
       setIsloading(true);
-      const response = dispatch(logIn(values));
-      console.log(response);
+      const response = await dispatch(logIn(values));
+      console.log("Login.jsx-res", response);
+      setIsloading(false);
+      if (response.error) {
+        const error = new Error(response.payload.data.message);
+        error.status = response.status;
+        throw error;
+      }
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -32,6 +44,7 @@ export const Login = () => {
           Log in
         </button>
       </form>
+      {user && user.email && <div>your id:{user.id}</div>}
     </>
   );
 };

@@ -17,20 +17,23 @@ const authSlice = createSlice({
         state.error = null;
       })
       .addCase(Auth.signUp.fulfilled, (state, action) => {
-        (state.user = action.payload.user), (state.token = action.payload.token), (state.isLoggedin = true), (state.error = null);
+        (state.user = action.payload.user), (state.token = action.payload.accessTokentoken), (state.error = null);
       })
       .addCase(Auth.signUp.rejected, (state, action) => {
-        state.error = action.payload;
+        state.error = { status: action.payload.status, message: action.payload.data.message };
       })
 
       .addCase(Auth.logIn.pending, (state) => {
         state.error = null;
       })
       .addCase(Auth.logIn.fulfilled, (state, action) => {
-        (state.user = action.payload.user), (state.token = action.payload.token), (state.isLoggedin = true), (state.error = null);
+        (state.user = action.payload.user),
+          (state.token = action.payload.accessToken),
+          (state.isLoggedin = true),
+          (state.error = null);
       })
       .addCase(Auth.logIn.rejected, (state, action) => {
-        state.error = action.payload;
+        state.error = { status: action.payload.status, message: action.payload.data.message };
       })
 
       .addCase(Auth.logOut.pending, (state) => {

@@ -1,43 +1,29 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-
-export const API_URL = "https://my-playground-server.onrender.com";
-
-const token = localStorage.getItem("token");
-
-const $api = axios.create({
-  withCredentials: true,
-  baseURL: API_URL,
-});
-
-$api.interceptors.request.use((config) => {
-  config.headers.Authorization = `Bearer ${token}`;
-  return config;
-});
-
-export default $api;
+import $api from "../axios";
 
 export const signUp = createAsyncThunk("auth/signUp", async (credentials, { rejectWithValue }) => {
   try {
-    const data = await axios.post("/user/signup");
-    return data.user;
+    const response = await $api.post("/user/signup");
+    return response.data;
   } catch (error) {
-    return rejectWithValue(error.message);
+    return rejectWithValue(error.response);
   }
 });
 
 export const logIn = createAsyncThunk("auth/logIn", async (credentials, { rejectWithValue }) => {
   try {
-    const data = await $api.post("/user/login", credentials);
-    localStorage.setItem("token", data.accessToken);
+    const response = await $api.post("/user/login", credentials);
+    localStorage.setItem("token", response.data.accessToken);
+    return response.data;
   } catch (error) {
-    return rejectWithValue(error.message);
+    console.log("catch-error", error.response);
+    return rejectWithValue(error.response);
   }
 });
 
 export const logOut = createAsyncThunk("auth/logOut", async ({ rejectWithValue }) => {
   try {
-    const data = await axios.post("/user/logout");
+    const data = await $api.post("/user/logout");
     localStorage.removeItem("token");
     return data;
   } catch (error) {
