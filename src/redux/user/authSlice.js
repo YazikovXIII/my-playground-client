@@ -50,15 +50,15 @@ const authSlice = createSlice({
 
       .addCase(Auth.getCurrent.pending, (state) => {
         state.error = null;
+        state.isRefreshing = true;
       })
       .addCase(Auth.getCurrent.fulfilled, (state, action) => {
-        (state.user = action.payload.user),
-          (state.token = action.payload.accessToken),
-          (state.isLoggedin = true),
-          (state.error = null);
+        (state.user = action.payload), (state.isLoggedin = true), (state.error = null);
+        state.isRefreshing = false;
       })
       .addCase(Auth.getCurrent.rejected, (state, action) => {
         state.error = { status: action.payload, message: action.payload };
+        state.isRefreshing = false;
       });
   },
 });

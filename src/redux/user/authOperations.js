@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import $api from "../axios";
-import axios from "axios";
 import { API_URL } from "../axios";
+import axios from "axios";
 
 export const signUp = createAsyncThunk("auth/signUp", async (credentials, { rejectWithValue }) => {
   try {
@@ -15,7 +15,9 @@ export const signUp = createAsyncThunk("auth/signUp", async (credentials, { reje
 export const logIn = createAsyncThunk("auth/logIn", async (credentials, { rejectWithValue }) => {
   try {
     const response = await $api.post("/user/login", credentials);
-    localStorage.setItem("token", response.data.accessToken);
+    console.log(response.data);
+
+    localStorage.setItem("token", response.data.accesstoken);
     return response.data;
   } catch (error) {
     console.log("catch-error", error.response);
@@ -33,13 +35,19 @@ export const logOut = createAsyncThunk("auth/logOut", async ({ rejectWithValue }
   }
 });
 
-export const getCurrent = createAsyncThunk("auth/getCurrent", async (_, thunkAPI) => {
+export const getCurrent = createAsyncThunk("auth/refres", async (_, thunkAPI) => {
   try {
-    const response = await $api.get(`${API_URL}/current`);
-    localStorage.setItem("token", response.data.accessToken);
-    return response.data;
-  } catch (error) {
-    console.log(error);
-    return thunkAPI.rejectWithValue(error.response);
+    axios.defaults.baseURL = API_URL;
+    const token = localStorage.getItem("token");
+    const setAuthHeader = (token) => {
+      axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+    };
+    setAuthHeader(token);
+    const { data } = await axios.get("/user/current");
+    console.log(data);
+    return data;
+  } catch (e) {
+    console.log(e);
+    return thunkAPI.rejectWithValue(e.message);
   }
 });
