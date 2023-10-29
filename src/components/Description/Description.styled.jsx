@@ -7,6 +7,8 @@ export const DescriptionWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-top: 80px;
+  height: calc(100vh - 80px);
 `;
 
 export const DescriptionHeader = styled.h1`
@@ -15,4 +17,8 @@ export const DescriptionHeader = styled.h1`
 
 export const DescriptionPar = styled.p`
   font-size: 16px;
+`;
+
+export const HelloHeader = styled.h2`
+  font-size: 20px;
 `;

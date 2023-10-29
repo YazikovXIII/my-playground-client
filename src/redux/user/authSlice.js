@@ -46,6 +46,19 @@ const authSlice = createSlice({
       })
       .addCase(Auth.logOut.rejected, (state, action) => {
         state.error = action.payload;
+      })
+
+      .addCase(Auth.getCurrent.pending, (state) => {
+        state.error = null;
+      })
+      .addCase(Auth.getCurrent.fulfilled, (state, action) => {
+        (state.user = action.payload.user),
+          (state.token = action.payload.accessToken),
+          (state.isLoggedin = true),
+          (state.error = null);
+      })
+      .addCase(Auth.getCurrent.rejected, (state, action) => {
+        state.error = { status: action.payload, message: action.payload };
       });
   },
 });
