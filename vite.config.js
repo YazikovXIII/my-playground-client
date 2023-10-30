@@ -5,4 +5,12 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   base: "/react_redux_new_todos/",
   plugins: [react()],
+  build: {
+    rollupOptions: {
+      input: {
+        main: "index.html",
+        nested: "404.html",
+      },
+    },
+  },
 });
