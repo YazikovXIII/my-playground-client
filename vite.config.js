@@ -1,16 +1,17 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import react from "@vitejs/plugin-react-swc";
+import svgr from "vite-plugin-svgr";
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  base: "/react_redux_new_todos/",
-  plugins: [react()],
-  build: {
-    rollupOptions: {
-      input: {
-        main: "index.html",
-        nested: "404.html",
-      },
+  server: {
+    open: true, // Автоматически открывать браузер при запуске сервера
+  },
+  plugins: [react(), svgr()],
+  resolve: {
+    alias: {
+      src: "/src",
+      components: "/src/components",
     },
   },
+  base: "/react_redux_new_todos/",
 });
