@@ -24,7 +24,6 @@ export const StyledLogoButton = styled.button`
   align-items: center;
   justify-content: center;
   transition: all 300ms ease-in-out;
-  font-size: 16px;
   &:hover {
     transform: scale(1.3);
     cursor: pointer;

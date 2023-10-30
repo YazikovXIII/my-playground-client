@@ -4,7 +4,6 @@ import { isLoggedIn } from "../../../redux/user/authSelectors";
 
 export const Navigation = () => {
   const isUserLoggedIn = useSelector(isLoggedIn);
-  console.log(isUserLoggedIn);
 
   return (
     <NavWrapper>
