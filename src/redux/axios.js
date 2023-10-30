@@ -1,6 +1,8 @@
 import axios from "axios";
 
 export const API_URL = "https://my-playground-server.onrender.com";
+// "https://my-playground-server.onrender.com"
+// "http://localhost:5000"
 
 const $api = axios.create({
   withCredentials: true,
