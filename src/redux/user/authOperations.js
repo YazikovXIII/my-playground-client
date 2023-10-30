@@ -3,9 +3,11 @@ import $api from "../axios";
 import { API_URL } from "../axios";
 import axios from "axios";
 
+axios.defaults.baseURL = API_URL;
+
 export const signUp = createAsyncThunk("auth/signUp", async (credentials, { rejectWithValue }) => {
   try {
-    const response = await $api.post("/user/signup");
+    const response = await axios.post("/user/registration", credentials);
     return response.data;
   } catch (error) {
     return rejectWithValue(error.response);
@@ -15,23 +17,23 @@ export const signUp = createAsyncThunk("auth/signUp", async (credentials, { reje
 export const logIn = createAsyncThunk("auth/logIn", async (credentials, { rejectWithValue }) => {
   try {
     const response = await $api.post("/user/login", credentials);
-    console.log(response.data);
-
     localStorage.setItem("token", response.data.accesstoken);
     return response.data;
   } catch (error) {
-    console.log("catch-error", error.response);
     return rejectWithValue(error.response);
   }
 });
 
-export const logOut = createAsyncThunk("auth/logOut", async ({ rejectWithValue }) => {
+export const logOut = createAsyncThunk("auth/logOut", async (_, { rejectWithValue }) => {
   try {
-    const data = await $api.post("/user/logout");
+    axios.defaults.baseURL = API_URL;
+    const response = await axios.post("/user/logout");
     localStorage.removeItem("token");
-    return data;
+    console.log(response.data);
+    return response.data;
   } catch (error) {
-    return rejectWithValue(error.message);
+    console.log(error.response);
+    return rejectWithValue(error.response);
   }
 });
 

@@ -1,14 +1,15 @@
 import { useSelector } from "react-redux";
 import { NavWrapper, NavigationLink } from "./Navigation.styled";
-import { getUser } from "../../../redux/user/authSelectors";
+import { isLoggedIn } from "../../../redux/user/authSelectors";
 
 export const Navigation = () => {
-  const user = useSelector(getUser);
+  const isUserLoggedIn = useSelector(isLoggedIn);
+  console.log(isUserLoggedIn);
 
   return (
     <NavWrapper>
       <NavigationLink to="/">&lt;Home/&gt;</NavigationLink>
-      {user.email ? (
+      {isUserLoggedIn ? (
         <NavigationLink to="/todos">&lt;Todos/&gt;</NavigationLink>
       ) : (
         <>

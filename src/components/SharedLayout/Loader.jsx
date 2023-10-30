@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Hourglass } from "react-loader-spinner";
+import { BallTriangle } from "react-loader-spinner";
 
 const StyledAudioWrapper = styled.div`
   position: fixed;
@@ -18,7 +18,7 @@ const StyledAudioWrapper = styled.div`
 export const Loader = () => {
   return (
     <StyledAudioWrapper className="audiowrapper">
-      <Hourglass width="200" color="green" />
+      <BallTriangle width="200" color="#4fa94d" />
     </StyledAudioWrapper>
   );
 };

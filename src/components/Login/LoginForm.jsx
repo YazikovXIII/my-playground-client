@@ -1,45 +1,43 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logIn } from "../../redux/user/authOperations";
+import { getUser } from "../../redux/user/authSelectors";
 import { useNavigate } from "react-router-dom";
-import { signUp } from "../redux/user/authOperations";
 
-export const Registration = () => {
-  const [name, setName] = useState("");
-  const [username, setUsername] = useState("");
+export const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const user = useSelector(getUser);
 
   async function subHandler(e) {
     e.preventDefault();
-    const values = { name, username, email, password };
+    const values = { email, password };
     try {
-      const action = await dispatch(signUp(values));
-      if (action.error) {
-        const error = new Error(action.payload.data.message);
-        error.status = action.status;
+      const response = await dispatch(logIn(values));
+      if (response.error) {
+        const error = new Error(response.payload.data.message);
+        error.status = response.status;
         throw error;
       }
-      navigate("/login");
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
   }
   return (
     <>
-      <div style={{ paddingTop: "100px" }}>Login page</div>
+      <div>Login page</div>
       <form>
-        <input id="name" onChange={(e) => setName(e.target.value)} type="name" placeholder="name" />
-        <input id="username" onChange={(e) => setUsername(e.target.value)} type="username" placeholder="username" />
         <input id="email" onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Email" />
         <input id="password" onChange={(e) => setPassword(e.target.value)} type="password" placeholder="password" />
-
         <button type="submit" onClick={subHandler}>
           Log in
         </button>
       </form>
+      {user && user.email && <div>your id:{user.id}</div>}
     </>
   );
 };
