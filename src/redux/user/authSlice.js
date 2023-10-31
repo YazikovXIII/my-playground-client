@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import * as Auth from "./authOperations";
+import { clearTodos } from "../todos/todosSlice";
 
 const authSlice = createSlice({
   name: "auth",
@@ -10,6 +11,7 @@ const authSlice = createSlice({
     isRefreshing: false,
     error: null,
   },
+
   extraReducers: (builder) => {
     builder
 
@@ -54,6 +56,7 @@ const authSlice = createSlice({
         state.token = null;
         state.isLoggedin = false;
         state.isRefreshing = false;
+        clearTodos();
       })
       .addCase(Auth.logOut.rejected, (state, action) => {
         state.error = { status: action.payload, message: action.payload };

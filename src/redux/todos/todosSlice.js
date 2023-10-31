@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import * as Todo from "./todosOperations";
+import * as Auth from "../user/authOperations";
 
 const todoSlice = createSlice({
   name: "todos",
@@ -7,6 +8,13 @@ const todoSlice = createSlice({
     todos: [],
     isRefreshing: false,
     error: null,
+  },
+  reducers: {
+    clearTodos: (state) => {
+      state.todos = [];
+      state.isRefreshing = false;
+      state.error = null;
+    },
   },
   // reducers: {
   //   addTodo(state, action) {
@@ -69,10 +77,15 @@ const todoSlice = createSlice({
       .addCase(Todo.getTodos.rejected, (state, action) => {
         state.error = { status: action.payload.status, message: action.payload.data.message };
         state.isRefreshing = false;
+      })
+      .addCase(Auth.logOut.fulfilled, (state) => {
+        state.todos = [];
+        state.isRefreshing = false;
+        state.error = null;
       });
   },
 });
 
-// export const { addTodo, removeTodo, toggleTodoComplete } = todoSlice.actions;
+export const { clearTodos } = todoSlice.actions;
 
 export default todoSlice.reducer;

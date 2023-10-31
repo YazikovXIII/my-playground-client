@@ -5,10 +5,8 @@ import { Todos } from "./pages/Todos";
 import { Login } from "./pages/Login";
 import { Registration } from "./pages/Registration";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getCurrent } from "./redux/user/authOperations";
-import { isLoading } from "./redux/user/authSelectors";
-import { Loader } from "./components/SharedLayout/Loader";
 
 function App() {
   const dispatch = useDispatch();
@@ -17,7 +15,6 @@ function App() {
   }, [dispatch]);
   return (
     <Routes>
-      {/* {loading && <Loader />} */}
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<Home />} />
         <Route path="/todos" element={<Todos />} />

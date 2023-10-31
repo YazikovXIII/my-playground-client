@@ -4,13 +4,15 @@ import { Loader } from "./Loader";
 import { Container, Main } from "./SharedLayout.styled";
 import { Suspense } from "react";
 import { useSelector } from "react-redux";
-import { isLoading } from "../../redux/user/authSelectors";
+import { isUserRefreshing } from "../../redux/user/authSelectors";
+import { isTodosRefreshing } from "../../redux/todos/todosSelector";
 
 export const SharedLayout = () => {
-  const loading = useSelector(isLoading);
+  const userRefreshing = useSelector(isUserRefreshing);
+  const todosRefreshing = useSelector(isTodosRefreshing);
   return (
     <>
-      {loading && <Loader />}
+      {(userRefreshing && <Loader />) || (todosRefreshing && <Loader />)}
       <Header />
       <Main>
         <Container>
