@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { logOut } from "../../../redux/user/authOperations";
 import { StyledLogoButton, StyledLogoLink, StyledLogoPar } from "./Logo.styled";
+import { useNavigate } from "react-router-dom";
 
 export const Logo = () => {
   return (
@@ -14,11 +15,12 @@ export const Logo = () => {
 
 export const Logo2 = () => {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       await dispatch(logOut());
+      navigate("/");
     } catch (error) {
       console.log(error);
     }

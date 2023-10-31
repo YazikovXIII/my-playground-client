@@ -1,21 +1,37 @@
 import { useDispatch } from "react-redux";
 import { StyledDelBtn, StyledInput, StyledLI, StyledSpan } from "./TodosItem.styled";
-import { removeTodo, toggleTodoComplete } from "../../../redux/todos/todosSlice";
+import { removeTodo } from "../../../redux/todos/todosOperations";
 
 export const TodosItem = ({ todo }) => {
   const dispatch = useDispatch();
+  const checkTaskCompleted = () => {};
+  const id = todo._id;
+  const value = todo.todo;
+  console.log(value);
 
-  const checkTaskCompleted = () => dispatch(toggleTodoComplete(todo.id));
-
-  const deleteTodo = () => dispatch(removeTodo(todo.id));
+  const handleSubmit = async () => {
+    try {
+      const action = await dispatch(removeTodo(id));
+      console.log("handlesubmit-action", action);
+      if (action.error) {
+        const error = new Error(action.payload.data.message);
+        error.status = action.error.status;
+        throw error;
+      }
+    } catch (error) {
+      console.log("handlesubmit-error", error);
+    }
+  };
   return (
     <StyledLI>
       <StyledInput type="checkbox" checked={todo.completed} onChange={() => checkTaskCompleted()} />
-      <StyledSpan>{todo.value}</StyledSpan>
+      <StyledSpan>{value}</StyledSpan>
       <StyledDelBtn
         style={{ color: "red", backgroundColor: "transparent", border: "none" }}
         type="button"
-        onClick={() => deleteTodo()}
+        onClick={() => {
+          handleSubmit();
+        }}
       >
         ×
       </StyledDelBtn>

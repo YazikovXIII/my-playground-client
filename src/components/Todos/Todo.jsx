@@ -2,22 +2,35 @@ import { TodosForm } from "./TodosForm/TodosForm";
 import { TodosList } from "./TodosList/TodosList";
 import { TodosWrapper } from "./Todo.styled";
 import { useDispatch } from "react-redux";
-import { addTodo } from "../../redux/todos/todosSlice";
+
 import { useState } from "react";
+import { addTodo } from "../../redux/todos/todosOperations";
 
 export const Todo = () => {
-  const [value, setValue] = useState("");
+  const [textValue, setValue] = useState("");
   const dispatch = useDispatch();
   const formButtonText = "Add todo";
   const placeholderText = "Enter text";
-  const addTask = () => {
-    dispatch(addTodo(value)), setValue("");
+
+  const addTask = async () => {
+    try {
+      const credential = { todo: textValue };
+      const response = await dispatch(addTodo(credential));
+      if (response.error) {
+        const error = new Error(response.payload.data.message);
+        error.status = response.status;
+        throw error;
+      }
+      setValue("");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
     <TodosWrapper>
       <TodosForm
-        value={value}
+        value={textValue}
         handleSubmit={addTask}
         handleChange={setValue}
         buttonText={formButtonText}
