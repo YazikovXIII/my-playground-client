@@ -27,7 +27,7 @@ const todoSlice = createSlice({
 
   //   toggleTodoComplete(state, action) {
   //     state.todos.map((todo) => {
-  //       if (todo.id !== action.payload) {
+  //       if (todo.id !== action.payload._id) {
   //         return todo;
   //       }
   //       return (todo.completed = !todo.completed);
@@ -42,7 +42,7 @@ const todoSlice = createSlice({
       })
       .addCase(Todo.addTodo.fulfilled, (state, action) => {
         state.isRefreshing = false;
-        console.log("add todo payload", action.payload);
+
         state.todos = [...state.todos, { todo: action.payload.todo, isComplete: action.payload.isComplete, _id: action.payload._id }];
       })
       .addCase(Todo.addTodo.rejected, (state, action) => {
@@ -56,12 +56,10 @@ const todoSlice = createSlice({
       })
       .addCase(Todo.removeTodo.fulfilled, (state, action) => {
         state.isRefreshing = false;
-        console.log("addcase-remove-fulfilled", action.payload);
+
         state.todos = state.todos.filter((todo) => todo._id !== action.payload._id);
       })
       .addCase(Todo.removeTodo.rejected, (state, action) => {
-        console.log("addcase - remove - rej", action.payload);
-
         state.error = { status: action.payload, message: action.payload.data.message };
         state.isRefreshing = false;
       })
@@ -71,7 +69,6 @@ const todoSlice = createSlice({
       })
       .addCase(Todo.getTodos.fulfilled, (state, action) => {
         state.isRefreshing = false;
-        console.log("add todo payload", action.payload);
         state.todos = [...action.payload];
       })
       .addCase(Todo.getTodos.rejected, (state, action) => {
@@ -82,6 +79,25 @@ const todoSlice = createSlice({
         state.todos = [];
         state.isRefreshing = false;
         state.error = null;
+      })
+      .addCase(Todo.toggleIsComplete.pending, (state) => {
+        state.error = null;
+        state.isRefreshing = true;
+      })
+      .addCase(Todo.toggleIsComplete.fulfilled, (state, action) => {
+        state.todos.map((todo) => {
+          if (todo._id !== action.payload._id) {
+            return todo;
+          }
+          console.log("acttion-payload toggle fulfilled", action.payload);
+
+          return (todo.isComplete = !action.payload.isComplete);
+        });
+        state.isRefreshing = false;
+      })
+      .addCase(Todo.toggleIsComplete.rejected, (state, action) => {
+        state.error = { status: action.payload.status, message: action.payload.data.message };
+        state.isRefreshing = false;
       });
   },
 });

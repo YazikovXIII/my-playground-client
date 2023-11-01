@@ -15,10 +15,8 @@ export const addTodo = createAsyncThunk("todo/addTodo", async (credentials, { re
 
 export const removeTodo = createAsyncThunk("todo/removeTodo", async (credentials, { rejectWithValue }) => {
   try {
-    console.log("cred", credentials);
     const response = await axios.delete(`/todo/delete/${credentials}`);
 
-    console.log("removetodo Operation", response.data);
     return response.data;
   } catch (error) {
     return rejectWithValue(error.response);
@@ -33,9 +31,19 @@ export const getTodos = createAsyncThunk("todo/getTodos", async (credentials, { 
     };
     setAuthHeader(token);
     const response = await axios.get(`/todo/getTodos`, credentials);
-    console.log("getTodos Operation", response.data);
     return response.data;
   } catch (error) {
+    return rejectWithValue(error.response);
+  }
+});
+
+export const toggleIsComplete = createAsyncThunk("todo/toggleIsComplete", async (credentials, { rejectWithValue }) => {
+  try {
+    const response = await axios.patch(`/todo/complete/${credentials}`, credentials);
+    console.log("try toggleIsComplete", response.data);
+    return response.data;
+  } catch (error) {
+    console.log("catch toggleIsComplete", error.response);
     return rejectWithValue(error.response);
   }
 });
