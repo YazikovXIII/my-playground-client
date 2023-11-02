@@ -1,12 +1,14 @@
-import { DescriptionHeader, DescriptionPar, DescriptionWrapper, HelloHeader } from "./Description.styled";
+import { DescriptionHeader, DescriptionPar, DescriptionWrapper } from "./Description.styled";
 
 // eslint-disable-next-line react/prop-types
-export const Description = ({ username, headertext, partext }) => {
+export const Description = ({ headertext, partext, link }) => {
   return (
     <DescriptionWrapper>
-      {username && <HelloHeader>Hello,{username}!</HelloHeader>}
       <DescriptionHeader>{headertext}</DescriptionHeader>
-      <DescriptionPar>{partext}</DescriptionPar>
+      <DescriptionPar>
+        {partext}
+        {link}
+      </DescriptionPar>
     </DescriptionWrapper>
   );
 };

@@ -37,7 +37,7 @@ export const TodosItem = ({ todo }) => {
       <StyledInput type="checkbox" checked={todo.isComplete} onChange={() => checkTaskCompleted()} />
       <StyledSpan>{value}</StyledSpan>
       <StyledDelBtn
-        style={{ color: "red", backgroundColor: "transparent", border: "none" }}
+        // style={{ color: "red", backgroundColor: "transparent", border: "none" }}
         type="button"
         onClick={() => {
           handleSubmit();

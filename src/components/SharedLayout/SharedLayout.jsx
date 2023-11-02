@@ -15,7 +15,7 @@ export const SharedLayout = () => {
       {(userRefreshing && <Loader />) || (todosRefreshing && <Loader />)}
       <Header />
       <Main>
-        <Container>
+        <Container className="Container">
           <Suspense fallback={<Loader />}>
             <Outlet />
           </Suspense>

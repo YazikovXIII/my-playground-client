@@ -5,4 +5,5 @@ export const StyledTodosList = styled.ul`
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  margin-top: 30px;
 `;

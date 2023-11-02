@@ -17,7 +17,3 @@ export const DescriptionHeader = styled.h1`
 export const DescriptionPar = styled.p`
   font-size: 16px;
 `;
-
-export const HelloHeader = styled.h2`
-  font-size: 20px;
-`;

@@ -3,9 +3,10 @@ import { NavLink } from "react-router-dom";
 
 export const StyledLogoLink = styled(NavLink)`
   text-decoration: none;
+  color: var(--color-secondary-light);
   display: flex;
   height: 40px;
-  width: 40px;
+  width: fit-content;
   align-items: center;
   justify-content: center;
   transition: all 300ms ease-in-out;
@@ -31,7 +32,7 @@ export const StyledLogoButton = styled.button`
 `;
 
 export const StyledLogoPar = styled.p`
-  color: green;
+  color: var(-color-secondary-light);
   font-size: 20px;
   font-weight: 400;
 `;

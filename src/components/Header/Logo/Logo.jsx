@@ -7,7 +7,7 @@ export const Logo = () => {
   return (
     <StyledLogoLink to="/">
       <StyledLogoPar>
-        <code>&lt;&gt;</code>
+        <code>&lt;Playground&gt;</code>
       </StyledLogoPar>
     </StyledLogoLink>
   );
@@ -29,7 +29,7 @@ export const Logo2 = () => {
   return (
     <StyledLogoButton onClick={handleSubmit}>
       <StyledLogoPar>
-        <code>&lt;/Log Out&gt;</code>
+        <code>&lt;Log Out/&gt;</code>
       </StyledLogoPar>
     </StyledLogoButton>
   );
@@ -39,7 +39,17 @@ export const Logo3 = () => {
   return (
     <StyledLogoLink to="/">
       <StyledLogoPar>
-        <code>&lt;/&gt;</code>
+        <code>&lt;/Playground&gt;</code>
+      </StyledLogoPar>
+    </StyledLogoLink>
+  );
+};
+
+export const Logo4 = () => {
+  return (
+    <StyledLogoLink to="/">
+      <StyledLogoPar>
+        <code>&lt;Playground/&gt;</code>
       </StyledLogoPar>
     </StyledLogoLink>
   );

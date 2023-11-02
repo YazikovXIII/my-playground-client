@@ -9,24 +9,42 @@ export const TodosFormWrapper = styled.div`
 `;
 
 export const TodosStyledInput = styled.input`
+  text-align: center;
   background-color: transparent;
-  border: 1px solid green;
+  border-radius: 5px;
+  border: 2px solid var(--color-primary-dark);
+  font-family: "DM Mono", monospace;
+  line-height: 1.5;
+  font-weight: 400;
   font-size: 16px;
-  color: green;
+  padding: 8px;
+  outline: none;
+  color: var(--color-primary-dark);
   &::placeholder {
-    color: green;
+    text-align: center;
+    font-family: "DM Mono", monospace;
+    line-height: 1.5;
+    font-weight: 400;
+    color: var(--color-primary-dark);
     opacity: 0.8;
   }
 `;
 
 export const StyledTodosButton = styled.button`
+  padding: 0 10px;
   background-color: transparent;
-  color: green;
-  border: 1px solid green;
+  font-family: "DM Mono", monospace;
+  line-height: 1.5;
+  font-weight: 400;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: var(--color-primary-dark);
+  color: var(--color-secondary-light);
+  border: 2px solid var(--color-primary-dark);
   transition: 300ms ease-out;
   &:hover {
-    background-color: green;
-    color: black;
+    transform: scale(1.1);
+
     cursor: pointer;
   }
 `;

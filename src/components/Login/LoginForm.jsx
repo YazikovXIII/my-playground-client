@@ -45,6 +45,7 @@
 import { useDispatch } from "react-redux";
 import { useFormik } from "formik";
 import { logIn } from "../../redux/user/authOperations";
+import "./LoginForm_styles.scss";
 
 import { useNavigate } from "react-router-dom";
 
@@ -67,18 +68,17 @@ export const LoginForm = () => {
         }
         navigate("/");
       } catch (error) {
+        window.alert(error);
+
         console.log(error);
       }
     },
   });
 
   return (
-    <>
-      <form
-        onSubmit={formik.handleSubmit}
-        style={{ display: "flex", flexDirection: "column", gap: "10px", width: "300px", margin: "0 auto" }}
-      >
-        <h2>Login page</h2>
+    <div className="form_wrapper">
+      <form className="login_form" onSubmit={formik.handleSubmit}>
+        <h2>Login</h2>
         <input id="email" name="email" type="email" onChange={formik.handleChange} value={formik.values.email} placeholder="Email" />
         <input
           id="password"
@@ -90,6 +90,6 @@ export const LoginForm = () => {
         />
         <button type="submit">Log in</button>
       </form>
-    </>
+    </div>
   );
 };

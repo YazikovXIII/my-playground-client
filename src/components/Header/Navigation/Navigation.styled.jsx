@@ -10,19 +10,19 @@ export const NavWrapper = styled.div`
 export const NavigationLink = styled(NavLink)`
   display: flex;
   text-decoration: none;
+  color: var(--color-secondary-light);
   align-items: center;
   justify-content: center;
-  color: green;
   font-size: 20px;
   font-weight: 400;
   padding: 0 10px;
   width: fit-content;
-  transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in;
   &:hover {
-    color: black;
-    background-color: green;
+    color: var(--color-primary-dark);
+    background-color: var(--color-secondary-light);
   }
   &.active {
-    border: 1px solid green;
+    border: 2px solid var(--color-secondary-light);
   }
 `;
