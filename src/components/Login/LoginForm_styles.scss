@@ -56,6 +56,24 @@
             cursor: pointer;
         }
        
+    }
 }
-
+.password_wrapper{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    width: 300px;
+    position: relative;
+    .password_input{
+        width: 100%;
+    }
+    .toggle-password{
+        position: absolute;
+        right: 0;
+        background-color: transparent;
+        border: none;
+        color: var(--color-primary-dark);
+        font-size: 12px;
+        padding: 10px;
+    }
 }

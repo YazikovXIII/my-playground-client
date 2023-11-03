@@ -45,13 +45,22 @@
 import { useDispatch } from "react-redux";
 import { useFormik } from "formik";
 import { logIn } from "../../redux/user/authOperations";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./LoginForm_styles.scss";
 
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { IconHidden, IconShown } from "./Show_hide_icon";
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const [isVisible, setIsVisible] = useState(false);
+  const toggleVisibility = () => {
+    setIsVisible(!isVisible);
+  };
 
   const formik = useFormik({
     initialValues: {
@@ -66,10 +75,32 @@ export const LoginForm = () => {
           error.status = response.status;
           throw error;
         }
-        navigate("/");
+        toast.success("You are logged in", {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          closeButton: false,
+        });
+        setTimeout(() => {
+          navigate("/");
+        }, 3000);
       } catch (error) {
-        window.alert(error);
-
+        toast.error(error.message, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          closeButton: false,
+        });
         console.log(error);
       }
     },
@@ -80,15 +111,23 @@ export const LoginForm = () => {
       <form className="login_form" onSubmit={formik.handleSubmit}>
         <h2>Login</h2>
         <input id="email" name="email" type="email" onChange={formik.handleChange} value={formik.values.email} placeholder="Email" />
-        <input
-          id="password"
-          name="password"
-          type="password"
-          onChange={formik.handleChange}
-          value={formik.values.password}
-          placeholder="Password"
-        />
+        <div className="password_wrapper">
+          <input
+            className="password_input"
+            id="password"
+            name="password"
+            type={isVisible ? "text" : "password"}
+            onChange={formik.handleChange}
+            value={formik.values.password}
+            placeholder="Password"
+          />
+          <button type="button" onClick={toggleVisibility} className="toggle-password">
+            {isVisible ? <IconHidden /> : <IconShown />}
+          </button>
+        </div>
+
         <button type="submit">Log in</button>
+        <ToastContainer />
       </form>
     </div>
   );

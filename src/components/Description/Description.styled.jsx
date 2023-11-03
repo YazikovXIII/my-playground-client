@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const DescriptionWrapper = styled.div`
-  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -11,9 +10,12 @@ export const DescriptionWrapper = styled.div`
 `;
 
 export const DescriptionHeader = styled.h1`
-  font-size: 32px;
+  font-size: 40px;
 `;
 
 export const DescriptionPar = styled.p`
-  font-size: 16px;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 20px;
+  max-width: 450px;
 `;

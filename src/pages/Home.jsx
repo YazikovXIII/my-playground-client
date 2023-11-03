@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { Description } from "../components/Description/Description";
 import { getUser, isLoggedIn } from "../redux/user/authSelectors";
-import { NavLink } from "react-router-dom";
+import { HomeWrapper, StyledDetailsLink, StyledPhoto } from "./Home.styled";
 
 export const Home = () => {
   const user = useSelector(getUser);
@@ -13,11 +13,14 @@ export const Home = () => {
   const textUnauth = "This page is my playground.Registrate a user and sign in to see more.";
 
   const headerIsAuth = `Hello, ${username}!`;
-  const link = <NavLink to="/about">About</NavLink>;
-  const textIsAuth = `My name is Vlad.I am a full-stack JavaScript developer seeking new professional opportunities.This page is my playground.I use it to learn more about React.js,React-Redux,Node.js etc...Check `;
+  const link = <StyledDetailsLink to="/about">here</StyledDetailsLink>;
+  const textIsAuth = `My name is Vlad. I am a full-stack JavaScript developer seeking new professional opportunities. This page is my playground. I made this client to learn more about React.js, React-Redux, different libraries etc... Also I made a server on Node.js to work with this page. Github links and more details  `;
 
   return isUserLoggedIn ? (
-    <Description headertext={headerIsAuth} partext={textIsAuth} link={link} />
+    <HomeWrapper>
+      <StyledPhoto src="/public_img/1.JPG" alt="My portrait"></StyledPhoto>
+      <Description headertext={headerIsAuth} partext={textIsAuth} link={link} />
+    </HomeWrapper>
   ) : (
     <Description headertext={headerUnauth} partext={textUnauth} />
   );
