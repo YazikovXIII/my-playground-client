@@ -9,7 +9,7 @@ import { Provider } from "react-redux";
 ReactDOM.createRoot(document.getElementById("root")).render(
   // <React.StrictMode>
   <Provider store={store}>
-    <BrowserRouter basename="/react_redux_new_todos">
+    <BrowserRouter basename="/my-playground-client">
       <App />
     </BrowserRouter>
   </Provider>
