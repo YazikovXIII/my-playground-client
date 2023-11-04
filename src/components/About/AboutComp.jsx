@@ -25,7 +25,7 @@ const AboutComp = () => {
               </a>
             </p>
             <p>
-              <a href="www.linkedin.com/in/vlad-yazikov-0575b727b" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/vlad-yazikov-0575b727b/" target="_blank" rel="noopener noreferrer">
                 <IconLinkedIn /> My LinkedIn
               </a>
             </p>
