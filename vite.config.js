@@ -13,5 +13,5 @@ export default defineConfig({
       components: "/src/components",
     },
   },
-  base: "/react_redux_new_todos/",
+  base: "/my-playground-client/",
 });
