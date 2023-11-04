@@ -425,7 +425,7 @@ Error generating stack: `+i.message+`
   text-decoration: none;
   font-size: 20px;
   color: var(-color-primary-light);
-`,Ik="/react_redux_new_todos/assets/Img/Hero_photo/1.JPG",Nk=()=>{const e=on(Ob),t=on(ta);let n=e.username;const r="Hello!",o="This page is my playground.Registrate a user and sign in to see more.",i=`Hello, ${n}!`,a=C.jsx(Ak,{to:"/about",children:"here"}),s="My name is Vlad. I am a full-stack JavaScript developer seeking new professional opportunities. This page is my playground. I made this client to learn more about React.js, React-Redux, different libraries etc... Also I made a server on Node.js to work with this page. Github links and more details  ";return t?C.jsxs(jk,{children:[C.jsx(Rk,{src:Ik,alt:"My portrait"}),C.jsx(Og,{headertext:i,partext:s,link:a})]}):C.jsx(Og,{headertext:r,partext:o})},Lk=xe.div`
+`,Ik="/react_redux_new_todos/assets/Img/Hero_photo/1.JPG",Nk=()=>{const e=on(Ob),t=on(ta);let n=e.username;const r="Hello!",o="This page is my playground.Registrate a user and sign in to see more.",i=`Hello, ${n}!`,a=C.jsx(Ak,{to:"/about",children:"here"}),s="My name is Vlad. This page is my playground. I made this client to learn more about React.js, React-Redux, different libraries etc... Also I made a server on Node.js to work with this page. Github links and more details  ";return t?C.jsxs(jk,{children:[C.jsx(Rk,{src:Ik,alt:"My portrait"}),C.jsx(Og,{headertext:i,partext:s,link:a})]}):C.jsx(Og,{headertext:r,partext:o})},Lk=xe.div`
   display: flex;
   justify-content: center;
   gap: 10px;
