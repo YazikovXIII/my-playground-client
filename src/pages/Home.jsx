@@ -7,7 +7,6 @@ export const Home = () => {
   const user = useSelector(getUser);
   const isUserLoggedIn = useSelector(isLoggedIn);
   let username = user.username;
-  console.log(user, isUserLoggedIn);
 
   const headerUnauth = "Hello!";
   const textUnauth = "This page is my playground.Registrate a user and sign in to see more.";
@@ -18,7 +17,7 @@ export const Home = () => {
 
   return isUserLoggedIn ? (
     <HomeWrapper>
-      <StyledPhoto src="/public_img/1.JPG" alt="My portrait"></StyledPhoto>
+      <StyledPhoto src="src/assets/Img/Hero_photo/1.JPG" alt="My portrait"></StyledPhoto>
       <Description headertext={headerIsAuth} partext={textIsAuth} link={link} />
     </HomeWrapper>
   ) : (

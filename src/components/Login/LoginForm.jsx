@@ -51,7 +51,7 @@ import "./LoginForm_styles.scss";
 
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { IconHidden, IconShown } from "./Show_hide_icon";
+import { IconHidden, IconShown } from "../Icons";
 
 export const LoginForm = () => {
   const dispatch = useDispatch();

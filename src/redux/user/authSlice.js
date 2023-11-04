@@ -8,7 +8,7 @@ const authSlice = createSlice({
     user: { email: "", id: "" },
     token: null,
     isLoggedin: false,
-    isRefreshing: false,
+    isRefreshing: true,
     error: null,
   },
 
@@ -68,7 +68,9 @@ const authSlice = createSlice({
         state.isRefreshing = true;
       })
       .addCase(Auth.getCurrent.fulfilled, (state, action) => {
-        (state.user = action.payload), (state.isLoggedin = true), (state.error = null);
+        state.user = action.payload;
+        state.isLoggedin = true;
+        state.error = null;
         state.isRefreshing = false;
       })
       .addCase(Auth.getCurrent.rejected, (state, action) => {

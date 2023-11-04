@@ -6,7 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Registration_styled.scss";
 import { useState } from "react";
-import { IconHidden, IconShown } from "../Login/Show_hide_icon";
+import { IconHidden, IconShown } from "../Icons";
 
 export const RegistrationForm = () => {
   const dispatch = useDispatch();
