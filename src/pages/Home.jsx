@@ -29,7 +29,7 @@ import { useSelector } from "react-redux";
 import { Description } from "../components/Description/Description";
 import { getUser, isLoggedIn } from "../redux/user/authSelectors";
 import { HomeWrapper, StyledDetailsLink, StyledPhoto } from "./Home.styled";
-import HeroPhoto from "src/assets/Img/Hero_photo/1.JPG"; // Імпортуйте зображення таким чином
+import HeroPhoto from "/assets/Img/Hero_photo/1.JPG?url";
 
 export const Home = () => {
   const user = useSelector(getUser);
