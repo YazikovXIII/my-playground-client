@@ -41,7 +41,7 @@ export const Home = () => {
 
   const headerIsAuth = `Hello, ${username}!`;
   const link = <StyledDetailsLink to="/about">here</StyledDetailsLink>;
-  const textIsAuth = `My name is Vlad. I am a full-stack JavaScript developer seeking new professional opportunities. This page is my playground. I made this client to learn more about React.js, React-Redux, different libraries etc... Also I made a server on Node.js to work with this page. Github links and more details  `;
+  const textIsAuth = `My name is Vlad. This page is my playground. I made this client to learn more about React.js, React-Redux, different libraries etc... Also I made a server on Node.js to work with this page. Github links and more details  `;
 
   return isUserLoggedIn ? (
     <HomeWrapper>
