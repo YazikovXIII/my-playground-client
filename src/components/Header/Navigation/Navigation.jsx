@@ -11,6 +11,7 @@ export const Navigation = () => {
         <>
           <NavigationLink to="/">&lt;Home/&gt;</NavigationLink>
           <NavigationLink to="/todos">&lt;Todos/&gt;</NavigationLink>
+          <NavigationLink to="/log">&lt;Log/&gt;</NavigationLink>
           <NavigationLink to="/about">&lt;About/&gt;</NavigationLink>
         </>
       ) : (
