@@ -16,7 +16,7 @@ const postSlice = createSlice({
       })
       .addCase(Post.addPost.fulfilled, (state, action) => {
         state.isRefreshing = false;
-        state.posts = [...state.posts, { post: action.payload }];
+        state.posts = [...state.posts, action.payload];
       })
       .addCase(Post.addPost.rejected, (state, action) => {
         state.error = { status: action.payload.status, message: action.payload.data.message };

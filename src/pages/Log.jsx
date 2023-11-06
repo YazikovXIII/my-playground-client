@@ -1,7 +1,11 @@
 import { LogComp } from "../components/Log/LogComp";
 
 const Log = () => {
-  return <LogComp />;
+  return (
+    <>
+      <LogComp />
+    </>
+  );
 };
 
 export default Log;

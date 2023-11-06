@@ -34,6 +34,7 @@ import HeroPhoto from "/assets/Img/Hero_photo/1.JPG?url";
 export const Home = () => {
   const user = useSelector(getUser);
   const isUserLoggedIn = useSelector(isLoggedIn);
+
   let username = user.username;
 
   const headerUnauth = "Hello!";

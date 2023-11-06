@@ -1,0 +1,52 @@
+.form_wrapper{
+    min-width: 320px;
+    padding:50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    .form_input{
+        width: 320px;
+        background-color: transparent;
+        border-radius: 5px;
+        border: 2px solid var(--color-primary-dark);
+        font-family: "DM Mono", monospace;
+        line-height: 1.5;
+        font-weight: 400;
+        font-size: 16px;
+        padding: 8px;
+        outline: none;
+        color: var(--color-primary-dark);
+        text-align: center;
+        &::placeholder {
+            text-align: center;
+            font-family: "DM Mono", monospace;
+            line-height: 1.5;
+            font-weight: 400;
+            color: var(--color-primary-dark);
+            opacity: 0.8; 
+    }
+    }
+    .textarea{
+        height: 190px;
+    }
+     .post_form_submit_button{
+        margin-top: 40px;
+        height: 44px;
+        width: 320px;
+        background-color: transparent;
+        font-family: "DM Mono", monospace;
+        line-height: 1.5;
+        font-weight: 400;
+        border-radius: 5px;
+        font-size: 16px;
+        background-color: var(--color-primary-dark);
+        color: var(--color-secondary-light);
+        border: 2px solid var(--color-primary-dark);
+        transition: 300ms ease-out;
+        &:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+    }
+}

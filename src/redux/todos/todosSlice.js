@@ -16,24 +16,6 @@ const todoSlice = createSlice({
       state.error = null;
     },
   },
-  // reducers: {
-  //   addTodo(state, action) {
-  //     state.todos.push({ value: action.payload, id: new Date().toISOString(), completed: false });
-  //   },
-
-  //   removeTodo(state, action) {
-  //     state.todos = state.todos.filter((todo) => todo.id !== action.payload);
-  //   },
-
-  //   toggleTodoComplete(state, action) {
-  //     state.todos.map((todo) => {
-  //       if (todo.id !== action.payload._id) {
-  //         return todo;
-  //       }
-  //       return (todo.completed = !todo.completed);
-  //     });
-  //   },
-  // },
   extraReducers: (builder) => {
     builder
       .addCase(Todo.addTodo.pending, (state) => {

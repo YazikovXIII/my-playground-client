@@ -4,7 +4,7 @@
 .horizontal{
     display: block;
     .item_image{
-        max-width: 1280px;
+        max-width: 1240px;
     }
     .post_text_content_wrapper{
         box-sizing: border-box;
@@ -30,6 +30,7 @@
         flex-direction: column;
         width: calc(100% - 420px);
         align-items: center;
+        justify-content: center;
         border-bottom: 2px solid var(--color-primary-dark);
         border-right: 2px solid var(--color-primary-dark);
         border-top: 2px solid var(--color-primary-dark);

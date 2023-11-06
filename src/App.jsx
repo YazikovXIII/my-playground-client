@@ -11,6 +11,7 @@ import { About } from "./pages/About";
 import { RestrictedRoute } from "./routes_restriction/RestrictedRoute";
 import { PrivateRoute } from "./routes_restriction/PrivateRoute";
 import Log from "./pages/Log";
+import { LogManager } from "./pages/LogManager";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,6 +26,7 @@ function App() {
         <Route path="/registration" element={<RestrictedRoute redirectTo="/" component={<Registration />} />} />
         <Route path="/todos" element={<PrivateRoute redirectTo="/" component={<Todos />} />} />
         <Route path="/log" element={<PrivateRoute redirectTo="/" component={<Log />} />} />
+        <Route path="/log/management" element={<PrivateRoute redirectTo="/" component={<LogManager />} />} />
         <Route path="/about" element={<PrivateRoute redirectTo="/" component={<About />} />} />
       </Route>
     </Routes>
