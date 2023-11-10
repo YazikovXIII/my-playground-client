@@ -87,6 +87,25 @@ const AboutComp = () => {
             someone&apos;s todo.
           </p>
         </li>
+        <li>
+          <h3>
+            <code>&lt;Log/&gt;</code>
+          </h3>
+          <p>
+            Shish ... 🤔 The spark for the &quot;LOG&quot; idea ignited while I was coding those todos. I thought, &quot;How cool would
+            it be to have a spot where I can spill the beans about coding struggles and attach a screenshot or an image?&quot; The
+            kicker is... I&apos;ve already faced these issues and, oops, I don&apos;t quite remember them all... Looks like I
+            should&apos;ve crafted this LOG first, or at least jotted down my problems in some txt file. So now, I&apos;m left with
+            nothing to post there... 🙄
+          </p>
+          <p>
+            Of course, there are a bunch of features I could add to this app, like filtering posts by authors or categories. But,
+            let&apos;s be real, I&apos;m a tad bored with this project for now. C&apos;mon! This is supposed to be a playground.
+            What&apos;s the point if it&apos;s not fun? 😅 I&apos;ll definitely sprinkle in some cool stuff later. For now, I&apos;m in
+            chill mode and ready to dive into a new project... And that&apos;s where the LOG will shine! If it&apos;s too late to be
+            the diary of this project, it can surely be the chronicle of my new adventure. Yeah! 🚀💻
+          </p>
+        </li>
       </ul>
     </div>
   );

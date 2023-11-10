@@ -7,6 +7,7 @@ const postSlice = createSlice({
     posts: [],
     isRefreshing: false,
     error: null,
+    postsOfUser: [],
   },
   extraReducers: (builder) => {
     builder
@@ -32,6 +33,31 @@ const postSlice = createSlice({
       })
       .addCase(Post.getAll.rejected, (state, action) => {
         state.error = { status: action.payload.status, message: action.payload.data.message };
+        state.isRefreshing = false;
+      })
+      .addCase(Post.getUsersPosts.pending, (state) => {
+        state.error = null;
+        state.isRefreshing = true;
+      })
+      .addCase(Post.getUsersPosts.fulfilled, (state, action) => {
+        console.log("fulfilled action_payload", action.payload);
+        state.postsOfUser = [...action.payload];
+        state.isRefreshing = false;
+      })
+      .addCase(Post.getUsersPosts.rejected, (state, action) => {
+        state.error = { status: action.payload.status, message: action.payload.data.message };
+        state.isRefreshing = false;
+      })
+      .addCase(Post.removeUsersPost.pending, (state) => {
+        state.error = null;
+        state.isRefreshing = true;
+      })
+      .addCase(Post.removeUsersPost.fulfilled, (state, action) => {
+        state.isRefreshing = false;
+        state.postsOfUser = state.postsOfUser.filter((post) => post._id !== action.payload._id);
+      })
+      .addCase(Post.removeUsersPost.rejected, (state, action) => {
+        state.error = { status: action.payload, message: action.payload.data.message };
         state.isRefreshing = false;
       });
   },

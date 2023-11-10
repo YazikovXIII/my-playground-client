@@ -1,0 +1,59 @@
+
+.list_wrapper{
+    padding-top: 20px;
+
+.users_posts_list{
+    padding: 40px 0;
+    list-style: none;
+    li{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--color-primary-dark);
+        border-right: 1px solid var(--color-primary-dark);
+        border-bottom-right-radius: 5px;
+        padding: 5px;
+        .users_posts__delete_button{
+        height: 50px;  
+        font-family: "DM Mono", monospace;
+        font-size: 20px;
+        color: var(--color-secondary-light);
+        width: fit-content;
+        padding: 10px;
+        background-color: var(--color-primary-dark);
+        border: 1px solid transparent;
+        border-radius: 5px;
+        transition: all 300ms ease-in;
+        &:hover{
+            background-color: var(--color-secondary-light);
+            color: var(--color-primary-dark);
+            border: 1px solid var(--color-primary-dark);
+            cursor: pointer;
+        }
+        }
+        .item_text{
+            max-width: 1000px;
+        }
+    }
+    li:not(:first-child){
+        margin-top: 20px;
+    }
+}
+.back_button{
+       font-family: "DM Mono", monospace;
+        font-size: 20px;
+        color: var(--color-secondary-light);
+        width: fit-content;
+        padding: 10px;
+        background-color: var(--color-primary-dark);
+        border: 1px solid transparent;
+        border-radius: 5px;
+        transition: all 300ms ease-in;
+        &:hover{
+            background-color: var(--color-secondary-light);
+            color: var(--color-primary-dark);
+            border: 1px solid var(--color-primary-dark);
+            cursor: pointer;
+        }
+}
+}
