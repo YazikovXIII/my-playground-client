@@ -9,7 +9,7 @@ export const HeaderZone = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: 80px;
+  height: 60px;
   background-color: var(--color-primary-dark);
   border-bottom-right-radius: 25px;
   border-bottom-left-radius: 25px;

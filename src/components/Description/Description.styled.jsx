@@ -6,7 +6,7 @@ export const DescriptionWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 120px);
 `;
 
 export const DescriptionHeader = styled.h1`

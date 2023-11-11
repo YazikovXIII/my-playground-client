@@ -40,7 +40,7 @@ export const LogModal = ({ toogleModal }) => {
         theme: "light",
         closeButton: false,
       });
-      await dispatch(getAll());
+      // await dispatch(getAll());
     } catch (error) {
       toast.error(error.message, {
         position: "top-center",

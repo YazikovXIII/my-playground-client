@@ -12,6 +12,7 @@ export const LogComp = () => {
   const dispatch = useDispatch();
   const [isModal, setIsModal] = useState(false);
   const posts = useSelector(selectPosts);
+  const postsReversed = [...posts].reverse();
 
   useEffect(() => {
     dispatch(getAll());
@@ -35,7 +36,7 @@ export const LogComp = () => {
         </div>
       </div>
       <ul>
-        {posts.map((post) => (
+        {postsReversed.map((post) => (
           <PostItem key={post._id} imgURL={post.imgURL} header={post.header} text={post.text} />
         ))}
       </ul>
