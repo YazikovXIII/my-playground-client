@@ -1,11 +1,11 @@
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { addPost } from "../../../redux/posts/postsOperations";
-import "./LogModal.scss";
+
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
+import { editUsersPost, getAll } from "../../../../redux/posts/postsOperations";
 
-export const LogModal = ({ toogleModal }) => {
+export const LogManagerModal = ({ toogleModal, post }) => {
   const PostSchema = Yup.object().shape({
     postThumb: Yup.mixed().required("File is required"),
     header: Yup.string().required("Title is required"),
@@ -20,8 +20,12 @@ export const LogModal = ({ toogleModal }) => {
       formData.append("postThumb", values.postThumb);
       formData.append("header", values.header);
       formData.append("text", values.text);
+      const credentials = {
+        _id: post._id,
+        formData,
+      };
 
-      const response = await dispatch(addPost(formData));
+      const response = await dispatch(editUsersPost(credentials));
 
       if (response.error) {
         const error = new Error(response.payload.data.message);
@@ -64,8 +68,8 @@ export const LogModal = ({ toogleModal }) => {
           <Formik
             initialValues={{
               postThumb: null,
-              header: "",
-              text: "",
+              header: post.header,
+              text: post.text,
             }}
             validationSchema={PostSchema}
             onSubmit={async (values, { resetForm }) => {
@@ -85,8 +89,11 @@ export const LogModal = ({ toogleModal }) => {
                     setFieldValue("postThumb", event.currentTarget.files[0]);
                   }}
                 />
+                <ErrorMessage name="postThumb" component="div" className="error_message" />
                 <Field name="header" type="text" placeholder="Title" className="form_input" />
+                <ErrorMessage name="header" component="div" className="error_message_header" />
                 <Field name="text" as="textarea" placeholder="Text" className="form_input textarea" />
+                <ErrorMessage name="text" component="div" className="error_message_text" />
 
                 <button type="submit" className="post_form_submit_button">
                   Submit

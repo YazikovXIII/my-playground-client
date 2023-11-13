@@ -5,6 +5,19 @@
     justify-content: center;
     align-items: center;
     gap: 30px;
+    position: relative;
+    .error_message{
+        position: absolute;
+        top: 22px;
+    }
+    .error_message_header{
+        position: absolute;
+        top:96px
+    }
+    .error_message_text{
+        position: absolute;
+        top:170px
+    }
     .form_input{
         width: 320px;
         background-color: transparent;

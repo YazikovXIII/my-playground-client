@@ -19,6 +19,9 @@ border-top-left-radius: 25px;
     a{
         text-decoration: none;
         color: var(--color-secondary-light);
+        @media (min-width: 375px) {
+font-size: 12px;
+  }
     }
   }
 }

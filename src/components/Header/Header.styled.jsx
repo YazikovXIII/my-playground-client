@@ -25,19 +25,20 @@ export const HeaderWrapper = styled.div`
   position: relative;
   margin-left: auto;
   margin-right: auto;
+  z-index: 500;
 
   @media (min-width: 375px) {
-    width: 375px;
+    width: 767px;
     padding: 0 20px;
   }
 
   @media (min-width: 768px) {
-    width: 768px;
+    width: 1439px;
     padding: 0 32px;
   }
 
-  @media (min-width: 1280px) {
-    width: 1280px;
+  @media (min-width: 1440px) {
+    width: 1440px;
     padding: 0 20px;
   }
 `;

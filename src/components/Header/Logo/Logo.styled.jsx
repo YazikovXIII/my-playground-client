@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import { ReactSVG } from "react-svg";
 
 export const StyledLogoLink = styled(NavLink)`
   text-decoration: none;

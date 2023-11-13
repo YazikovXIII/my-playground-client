@@ -2,6 +2,8 @@ import { useDispatch } from "react-redux";
 import { logOut } from "../../../redux/user/authOperations";
 import { StyledLogoButton, StyledLogoLink, StyledLogoPar } from "./Logo.styled";
 import { useNavigate } from "react-router-dom";
+import "./Logo.scss";
+import { ReactSVG } from "react-svg";
 
 export const Logo = () => {
   return (
@@ -52,5 +54,41 @@ export const Logo4 = () => {
         <code>&lt;Playground/&gt;</code>
       </StyledLogoPar>
     </StyledLogoLink>
+  );
+};
+
+export const BtnAuth = ({ toggle }) => {
+  return (
+    <button
+      onClick={() => {
+        toggle();
+      }}
+      className="enter_button"
+    >
+      <ReactSVG
+        src="../../../../public/assets/SVG/enter-svgrepo-com.svg"
+        beforeInjection={(svg) => {
+          svg.classList.add("enter_svg");
+        }}
+      />
+    </button>
+  );
+};
+
+export const BtnBurger = ({ toggle }) => {
+  return (
+    <button
+      onClick={() => {
+        toggle();
+      }}
+      className="enter_button"
+    >
+      <ReactSVG
+        src="../../../../public/assets/SVG/burger-checklist-list-menu-navigation-svgrepo-com.svg"
+        beforeInjection={(svg) => {
+          svg.classList.add("enter_svg");
+        }}
+      />
+    </button>
   );
 };

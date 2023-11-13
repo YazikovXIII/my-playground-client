@@ -6,6 +6,12 @@ export const NavWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  @media (min-width: 767px) {
+    flex-direction: row;
+    align-items: center;
+  }
 `;
 export const NavigationLink = styled(NavLink)`
   display: flex;
@@ -24,5 +30,11 @@ export const NavigationLink = styled(NavLink)`
   }
   &.active {
     border: 2px solid var(--color-secondary-light);
+  }
+  @media (min-width: 767px) {
+    font-size: 16px;
+  }
+  @media (min-width: 1440px) {
+    font-size: 20px;
   }
 `;
