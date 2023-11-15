@@ -28,7 +28,7 @@
 import { useSelector } from "react-redux";
 import { Description } from "../components/Description/Description";
 import { getUser, isLoggedIn } from "../redux/user/authSelectors";
-import { HomeWrapper, StyledDetailsLink, StyledPhoto } from "./Home.styled";
+import { HomeWrapper, HomeWrapperUnAuth, StyledDetailsLink, StyledPhoto } from "./Home.styled";
 import HeroPhoto from "/assets/Img/Hero_photo/1.JPG?url";
 
 export const Home = () => {
@@ -46,10 +46,12 @@ export const Home = () => {
 
   return isUserLoggedIn ? (
     <HomeWrapper>
-      <StyledPhoto src={HeroPhoto} alt="My portrait"></StyledPhoto>
       <Description headertext={headerIsAuth} partext={textIsAuth} link={link} />
+      <StyledPhoto src={HeroPhoto} alt="My portrait"></StyledPhoto>
     </HomeWrapper>
   ) : (
-    <Description headertext={headerUnauth} partext={textUnauth} />
+    <HomeWrapperUnAuth>
+      <Description headertext={headerUnauth} partext={textUnauth} />
+    </HomeWrapperUnAuth>
   );
 };

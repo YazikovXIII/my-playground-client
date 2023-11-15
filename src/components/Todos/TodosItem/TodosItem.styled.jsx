@@ -6,15 +6,21 @@ export const StyledLI = styled.li`
   align-items: center;
   display: flex;
   gap: 10px;
+  width: 320px;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-primary-dark);
+  padding: 0 10px;
 `;
 
 export const StyledInput = styled.input`
-  width: 10px;
-  height: 10px;
+  margin: 0;
+  padding: 0;
+  width: 14px;
+  height: 14px;
   appearance: none;
   background: transparent;
   border: 2px solid var(--color-primary-dark);
-  border-radius: 5px;
+  border-radius: 7px;
   &:hover {
     cursor: pointer;
   }
@@ -25,6 +31,7 @@ export const StyledInput = styled.input`
 
 export const StyledSpan = styled.span`
   font-size: 20px;
+  width: 250px;
 `;
 
 export const StyledDelBtn = styled.button`

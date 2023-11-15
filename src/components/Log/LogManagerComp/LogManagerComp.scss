@@ -1,6 +1,7 @@
 .list_wrapper{
 padding-top: 20px;
 
+
 .users_posts_list{
     padding: 40px 0;
     list-style: none;
@@ -12,10 +13,16 @@ padding-top: 20px;
         border-right: 1px solid var(--color-primary-dark);
         border-bottom-right-radius: 5px;
         padding: 5px;
+        @media screen and (max-width:375px){
+        display: block;
+        }
           .buttons_wrapper{
                 display: flex;
                 flex-direction: column;
                 gap: 5px;
+                    @media screen and (max-width:375px){
+                    flex-direction: row;
+                    }
                  .users_posts__delete_button{
                      height: 50px; 
                      width: 155px;

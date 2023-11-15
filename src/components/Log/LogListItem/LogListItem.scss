@@ -5,6 +5,10 @@
     display: block;
     .item_image{
         max-width: 1240px;
+        @media screen and (max-width:375px) {
+            width: 335px;
+            
+        }
     }
     .post_text_content_wrapper{
         box-sizing: border-box;
@@ -21,8 +25,16 @@
 .vertical{
     display: flex;
     gap: 20px;
+            @media screen and (max-width:375px) {
+            flex-direction: column;
+            
+        }
        .item_image{
         max-width: 400px;
+                @media screen and (max-width:375px) {
+            width: 335px;
+            
+        }
     }
     .post_text_content_wrapper{
         padding: 20px;
@@ -34,5 +46,11 @@
         border-bottom: 2px solid var(--color-primary-dark);
         border-right: 2px solid var(--color-primary-dark);
         border-top: 2px solid var(--color-primary-dark);
+                    @media screen and (max-width:375px) {
+            width: 100%;
+            border-top: none;
+            border-left: 2px solid var(--color-primary-dark);;
+            
+        }
     }
 }
