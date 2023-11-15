@@ -66,7 +66,7 @@ export const BtnAuth = ({ toggle }) => {
       className="enter_button"
     >
       <ReactSVG
-        src="../../../../public/assets/SVG/enter-svgrepo-com.svg"
+        src="/assets/SVG/enter-svgrepo-com.svg"
         beforeInjection={(svg) => {
           svg.classList.add("enter_svg");
         }}
@@ -84,7 +84,7 @@ export const BtnBurger = ({ toggle }) => {
       className="enter_button"
     >
       <ReactSVG
-        src="../../../../public/assets/SVG/burger-checklist-list-menu-navigation-svgrepo-com.svg"
+        src="/assets/SVG/burger-checklist-list-menu-navigation-svgrepo-com.svg"
         beforeInjection={(svg) => {
           svg.classList.add("enter_svg");
         }}
