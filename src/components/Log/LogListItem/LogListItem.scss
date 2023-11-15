@@ -4,11 +4,16 @@
 .horizontal{
     display: block;
     .item_image{
-        max-width: 1240px;
-        @media screen and (max-width:375px) {
-            width: 335px;
-            
-        }
+        width: 100%;
+        // @media screen and (min-width:375px) {
+        //     width: 100%
+        // }
+        // @media screen and (min-width:768) {
+        //     width: 768px;
+        // }
+        // @media screen and (min-width:1280) {
+        //     width: 1240px;
+        // }
     }
     .post_text_content_wrapper{
         box-sizing: border-box;
@@ -25,32 +30,39 @@
 .vertical{
     display: flex;
     gap: 20px;
-            @media screen and (max-width:375px) {
+            @media screen and (min-width:375px) {
             flex-direction: column;
-            
+        }
+                    @media screen and (min-width:768px) {
+            flex-direction: row;
         }
        .item_image{
-        max-width: 400px;
-                @media screen and (max-width:375px) {
-            width: 335px;
-            
-        }
+        // max-width: 400px;
+                @media screen and (min-width:375px) {
+                width: 100%;
+                }
+                @media screen and (min-width:768px) {
+                max-width: 400px
+                }
     }
     .post_text_content_wrapper{
         padding: 20px;
         display: flex;
         flex-direction: column;
-        width: calc(100% - 420px);
-        align-items: center;
-        justify-content: center;
-        border-bottom: 2px solid var(--color-primary-dark);
-        border-right: 2px solid var(--color-primary-dark);
-        border-top: 2px solid var(--color-primary-dark);
-                    @media screen and (max-width:375px) {
+        
+            @media screen and (min-width:375px) {
             width: 100%;
             border-top: none;
             border-left: 2px solid var(--color-primary-dark);;
-            
-        }
+            border-bottom: 2px solid var(--color-primary-dark);
+            border-right: 2px solid var(--color-primary-dark);
+            }
+            @media screen and (min-width:768px){
+                width: calc(100% - 420px);
+                align-items: center;
+                justify-content: center;
+                border-top: 2px solid var(--color-primary-dark);
+                border-left: none;
+            }
     }
 }
