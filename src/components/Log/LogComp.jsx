@@ -20,6 +20,11 @@ export const LogComp = () => {
 
   const toogleModal = () => {
     setIsModal(!isModal);
+    if (!isModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
   };
 
   return (

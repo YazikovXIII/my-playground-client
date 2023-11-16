@@ -1,4 +1,4 @@
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { addPost } from "../../../redux/posts/postsOperations";
 import "./LogModal.scss";
@@ -85,8 +85,11 @@ export const LogModal = ({ toogleModal }) => {
                     setFieldValue("postThumb", event.currentTarget.files[0]);
                   }}
                 />
+                <ErrorMessage name="postThumb" component="div" className="error_message" />
                 <Field name="header" type="text" placeholder="Title" className="form_input" />
+                <ErrorMessage name="header" component="div" className="error_message_header" />
                 <Field name="text" as="textarea" placeholder="Text" className="form_input textarea" />
+                <ErrorMessage name="text" component="div" className="error_message_text" />
 
                 <button type="submit" className="post_form_submit_button">
                   Submit

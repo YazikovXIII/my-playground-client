@@ -21,7 +21,6 @@ padding-top: 20px;
         }
           .buttons_wrapper{
                 display: flex;
-                flex-direction: column;
                 gap: 5px;
                     @media screen and (min-width:375px){
                     flex-direction: row;
