@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./LogListItem.scss";
 
-export const PostItem = ({ imgURL, header, text }) => {
+export const PostItem = ({ imgURL, header, text, owner }) => {
   const [isHorizontal, setIsHorizontal] = useState(true);
 
   useEffect(() => {
@@ -18,6 +18,7 @@ export const PostItem = ({ imgURL, header, text }) => {
       <div className="post_text_content_wrapper">
         <h3>{header}</h3>
         <p>{text}</p>
+        {owner && <p className="owner">posted by {owner}</p>}
       </div>
     </li>
   ) : (
@@ -26,6 +27,7 @@ export const PostItem = ({ imgURL, header, text }) => {
       <div className="post_text_content_wrapper">
         <h3>{header}</h3>
         <p>{text}</p>
+        {owner && <p className="owner">posted by {owner}</p>}
       </div>
     </li>
   );

@@ -12,6 +12,11 @@ export const Header = () => {
 
   const toggleModal = () => {
     setModalShown(!isModalSown);
+    if (!isModalSown) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
   };
   const { width } = useScreen();
   const isUserLoggedIn = useSelector(isLoggedIn);

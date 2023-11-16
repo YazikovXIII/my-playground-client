@@ -42,7 +42,7 @@ export const LogComp = () => {
       </div>
       <ul>
         {postsReversed.map((post) => (
-          <PostItem key={post._id} imgURL={post.imgURL} header={post.header} text={post.text} />
+          <PostItem key={post._id} imgURL={post.imgURL} header={post.header} text={post.text} owner={post.owner} />
         ))}
       </ul>
       {isModal === true && ReactDOM.createPortal(<LogModal toogleModal={toogleModal} />, document.getElementById("modal-root"))}

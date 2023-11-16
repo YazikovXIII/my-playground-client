@@ -25,6 +25,9 @@
         border-bottom: 2px solid var(--color-primary-dark);
         border-right: 2px solid var(--color-primary-dark);
         border-left: 2px solid var(--color-primary-dark);
+        .owner{
+            justify-self: end;
+        }
     }
 }
 .vertical{
@@ -49,8 +52,8 @@
         padding: 20px;
         display: flex;
         flex-direction: column;
-        
             @media screen and (min-width:375px) {
+                align-items: center;
             width: 100%;
             border-top: none;
             border-left: 2px solid var(--color-primary-dark);;
@@ -65,4 +68,8 @@
                 border-left: none;
             }
     }
+}
+.owner{
+    margin-top: 20px;
+    font-size: 10px;
 }
